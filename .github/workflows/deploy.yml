@@ -1,0 +1,31 @@
+name: Deploy Hugo site
+
+on:
+  push:
+    branches:
+      - main  # Change to your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+
+    - name: Install Dart Sass
+      run: sudo npm install -g sass
+
+    - name: Build the Hugo site
+      run: hugo --minify
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
