@@ -9,6 +9,9 @@ hugo new site . --force
 2. Setup book theme
 ```
 git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+rm -rf .git/modules/themes/hugo-book
+rm -rf themes/hugo-book/.git themes/hugo-book/.github
+
 echo "theme = 'hugo-book'" >> hugo.toml
 ```
 **optional** : copy sample data
@@ -22,3 +25,6 @@ hugo server --minify
 ```
 
 4. push to github
+
+
+https://gohugo.io/hosting-and-deployment/hosting-on-github/
