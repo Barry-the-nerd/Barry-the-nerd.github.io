@@ -74,6 +74,8 @@ jobs:
           echo "hugo version: ${HUGO_VERSION}"
           echo "hugo environ: ${HUGO_ENV}"
           echo "hugo environ: ${HUGO_ENVIRONMENT}"
+          curl -X POST "https://img.shields.io/badge/Hugo%20Version-${HUGO_VERSION}-brightgreen" -o hugo_version_badge.svg
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

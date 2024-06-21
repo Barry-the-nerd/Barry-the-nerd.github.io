@@ -1,5 +1,7 @@
 # Barry-the-nerd.github.io
 [![Test004](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/test004a.yml/badge.svg)](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/test004a.yml)
+  
+![Hugo Version](./hugo_version_badge.svg)
 
 1. Create new site  
 
