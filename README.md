@@ -54,6 +54,8 @@ https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
 Base URL is set in workflow yml using "${{ steps.pages.outputs.base_url }}"  
 
+**Reference**:
+https://gohugo.io/documentation/
 
 ## Use git clone or git submodule
 
