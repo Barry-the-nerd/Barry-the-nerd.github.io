@@ -5,4 +5,4 @@ theme = 'hugo-book'
 
 [params]
 #  BookDateFormat = 'January 2, 2006'
-  BookDateFormat = '1 January 1970'
+  BookDateFormat = '1 January 2006'
