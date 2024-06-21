@@ -67,18 +67,17 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/test/"
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Print build variables 
         run: | 
           echo "baseURL     : ${{ steps.pages.outputs.base_url }}"
           echo "hugo version: ${HUGO_VERSION}"
           echo "hugo environ: ${HUGO_ENV}"
           echo "hugo environ: ${HUGO_ENVIRONMENT}"
-          mkdir -p ./public/test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public/test
+          path: ./public
 
   # Deployment job
   deploy:
