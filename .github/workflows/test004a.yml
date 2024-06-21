@@ -34,6 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.127.0
+      # For maximum backward compatibility with Hugo modules
+      HUGO_ENVIRONMENT: production
+      HUGO_ENV: production
+
     steps:
       - name: Install Hugo CLI
         run: |
@@ -54,8 +58,8 @@ jobs:
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
+          ## moved to top HUGO_ENVIRONMENT: production
+          ## moved to top HUGO_ENV: production
           # https://timezonedb.com/time-zones
           # TZ: America/Los_Angeles
           TZ: Europe/London
@@ -64,12 +68,12 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Base URL 
+      - name: Print build variables 
         run: | 
-          echo "${{ steps.pages.outputs.base_url }}"
-          echo "${HUGO_VERSION}"
-          echo "${HUGO_ENV}"
-          echo "${HUGO_ENVIRONMENT}"
+          echo "baseURL     : ${{ steps.pages.outputs.base_url }}"
+          echo "hugo version: ${HUGO_VERSION}"
+          echo "hugo environ: ${HUGO_ENV}"
+          echo "hugo environ: ${HUGO_ENVIRONMENT}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
