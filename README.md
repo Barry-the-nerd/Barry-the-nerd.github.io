@@ -46,4 +46,7 @@ hugo server --minify
 4. push to github
 
 
-https://gohugo.io/hosting-and-deployment/hosting-on-github/
+https://gohugo.io/hosting-and-deployment/hosting-on-github/  
+
+Base URL is set in workflow yml using "${{ steps.pages.outputs.base_url }}"  
+
