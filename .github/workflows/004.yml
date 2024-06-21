@@ -74,6 +74,7 @@ jobs:
           echo "hugo version: ${HUGO_VERSION}"
           echo "hugo environ: ${HUGO_ENV}"
           echo "hugo environ: ${HUGO_ENVIRONMENT}"
+          mkdir -p ./public/test
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
