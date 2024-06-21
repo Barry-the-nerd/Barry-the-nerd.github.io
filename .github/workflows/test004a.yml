@@ -80,11 +80,7 @@ jobs:
         env:
           PAT: ${{ secrets.PAT }}
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add hugo_version_badge.svg
-          git commit -m "Update Hugo version badge"
-          git push https://github-actions:${PAT}@github.com/${{ github.repository }}.git
+          echo "${PAT}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
