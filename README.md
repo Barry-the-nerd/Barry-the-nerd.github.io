@@ -24,10 +24,10 @@ This is the expected folder structure.
 
 2. Setup book theme
 ```
-# if you want to get it as a git submodule
+# if you want to get it as a git submodule (refer to Use git clone or git submodule section below)
 git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 
-# if you want to clone it
+# if you want to clone it (refer to Use git clone or git submodule section below)
 git clone https://github.com/alex-shpak/hugo-book themes/hugo-book
 
 ## Add theme setting to hugo.toml
