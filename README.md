@@ -1,5 +1,6 @@
 # Barry-the-nerd.github.io
-[![Test004](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/test004a.yml/badge.svg)](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/test004a.yml)
+[![Test004](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/004.yml/badge.svg?event=release)](https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/actions/workflows/004.yml)
+
 
 1. Create new site  
 

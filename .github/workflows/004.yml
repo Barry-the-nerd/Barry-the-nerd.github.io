@@ -79,6 +79,16 @@ jobs:
         with:
           path: ./public
 
+      - name: Trigger custom event using curl
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/${{ github.repository }}/dispatches \
+            -d '{"event_type":"custom_event"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPERPAT }}
+
   # Deployment job
   deploy:
     environment:
