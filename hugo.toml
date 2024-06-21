@@ -7,3 +7,5 @@ theme = 'hugo-book'
 # https://gohugo.io/methods/time/format/
   BookDateFormat = '2 January 2006'
   BookLogo = 'logo.png'
+  BookFavicon = 'favicon.png'
+#  BookFavicon = 'favicon.ico'
