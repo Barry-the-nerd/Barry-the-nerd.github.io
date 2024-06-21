@@ -88,6 +88,18 @@ jobs:
             echo "PAT is set"
           fi
 
+      - name: Commit and Push Badge
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://github-actions:${PAT}@github.com/${{ github.repository }}.git
+          git add hugo_version_badge.svg
+          git commit -m "Update Hugo version badge"
+          git push origin HEAD:main
+
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
