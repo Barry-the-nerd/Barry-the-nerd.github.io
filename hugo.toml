@@ -4,4 +4,5 @@ title = 'My New Hugo Site'
 theme = 'hugo-book'
 
 [params]
-  BookDateFormat = '2 January, 2006'
+#  BookDateFormat = 'January 2, 2006'
+  BookDateFormat = '1 January 2000'
