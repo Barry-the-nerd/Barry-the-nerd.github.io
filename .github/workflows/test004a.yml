@@ -65,10 +65,11 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Base URL 
-        run: echo "${{ steps.pages.outputs.base_url }}"
-        run: echo "{HUGO_VERSION}"
-        run: echo "${HUGO_ENV}"
-        run: echo "${HUGO_ENVIRONMENT}"
+        run: | 
+          echo "${{ steps.pages.outputs.base_url }}"
+          echo "{HUGO_VERSION}"
+          echo "${HUGO_ENV}"
+          echo "${HUGO_ENVIRONMENT}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
