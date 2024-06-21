@@ -67,7 +67,7 @@ jobs:
       - name: Base URL 
         run: | 
           echo "${{ steps.pages.outputs.base_url }}"
-          echo "{HUGO_VERSION}"
+          echo "${HUGO_VERSION}"
           echo "${HUGO_ENV}"
           echo "${HUGO_ENVIRONMENT}"
       - name: Upload artifact
