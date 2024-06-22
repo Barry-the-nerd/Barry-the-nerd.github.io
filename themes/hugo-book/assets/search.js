@@ -18,6 +18,10 @@
         weight: 0.7
       },
       {
+        name: 'tags',
+        weight: 0.7
+      },
+      {
         name: 'content',
         weight: 0.3
       }
