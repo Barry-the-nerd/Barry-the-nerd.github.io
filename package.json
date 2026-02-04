@@ -1,0 +1,24 @@
+{
+  "name": "barry-the-nerd.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barry-the-nerd/Barry-the-nerd.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barry-the-nerd/Barry-the-nerd.github.io/issues"
+  },
+  "homepage": "https://github.com/Barry-the-nerd/Barry-the-nerd.github.io#readme",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

@@ -1,0 +1,19 @@
+[
+  
+    {
+      "title": "My First Blog Post",
+      "url": "/posts/2026-02-03-first-post/",
+      "date": "1 Feb 2026",
+      "tags": ["post","one","two","four"],
+      "searchContent": "my first blog post post one two four"
+    },
+  
+    {
+      "title": "My Second Blog Post",
+      "url": "/posts/2026-02-03-first-post copy/",
+      "date": "2 Feb 2026",
+      "tags": ["post","five","ten"],
+      "searchContent": "my second blog post post five ten"
+    }
+  
+]

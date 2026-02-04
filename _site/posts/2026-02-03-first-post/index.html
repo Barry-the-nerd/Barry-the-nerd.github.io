@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Blog Post</title>
+  <style>
+
+
+body { 
+  font-family: sans-serif; 
+  max-width: 1000px; 
+  margin: 40px auto; 
+  padding: 0 20px; 
+  line-height: 1.6; 
+}
+
+/* Default for Mobile: Stack them vertically */
+.container { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 30px; 
+}
+
+aside { 
+  border-top: 1px solid #eee; 
+  padding-top: 20px; 
+}
+
+/* Desktop: Side-by-side when the screen is wider than 768px */
+@media (min-width: 768px) {
+  .container { 
+    flex-direction: row; 
+  }
+  
+  main { flex: 3; }
+  
+  aside { 
+    flex: 1; 
+    border-top: none; 
+    border-left: 1px solid #eee; 
+    padding-left: 20px; 
+    padding-top: 0;
+  }
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.post-nav div {
+  flex: 1;
+}
+
+
+.archive-tree details {
+  margin-bottom: 5px;
+}
+.archive-tree summary {
+  cursor: pointer;
+  padding: 2px 0;
+  list-style: none; /* Removes default arrow in some browsers */
+}
+.archive-tree summary:hover {
+  color: #007bff;
+}
+/* Optional: Adds a custom arrow */
+.archive-tree summary::before {
+  content: "▶ ";
+  font-size: 0.8em;
+}
+.archive-tree details[open] > summary::before {
+  content: "▼ ";
+}
+
+  </style>
+
+
+</head>
+<body>
+  <nav><a href="/">Home</a> | <a href="/about/">About</a></nav>
+
+  <div class="container">
+<!--
+    <main>
+      <h1>My First Blog Post</h1>
+      <p style="color: #666;">
+    
+    
+      1 Feb 2026 • <span>1 min read</span>
+    
+  </p>
+      <p>Your content here...</p>
+
+    </main>
+-->
+
+<main>
+
+
+  <h1>My First Blog Post</h1>
+  
+    
+      1 Feb 2026 • <span>1 min read</span>
+    
+  <p>Your content here...</p>
+
+
+  <hr>
+
+  
+  
+    <nav class="post-nav">
+      
+      
+
+      <div>
+        
+      </div>
+
+      <div style="text-align: right;">
+        
+          <strong>Next:</strong><br>
+          <a href="/posts/2026-02-03-first-post copy/">My Second Blog Post</a>
+        
+      </div>
+    </nav>
+  
+</main>
+
+<aside>
+
+<h3>Search</h3>
+  <input type="text" id="search-input" placeholder="Type to search..." style="width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px;">
+  <ul id="search-results" class="post-list" style="display: none; background: #f9f9f9; padding: 10px; border: 1px solid #ddd;"></ul>
+
+  <hr>
+
+  <h3>Archive</h3>
+  <div class="archive-tree">
+    
+    
+    
+    
+      <details open>
+        <summary><strong>2026</strong></summary>
+        <div style="margin-left: 15px;">
+          
+            <details>
+              <summary>February (2)</summary>
+              <ul class="post-list" style="margin-left: 15px;">
+                
+                  <li><a href="/posts/2026-02-03-first-post copy/">My Second Blog Post</a></li>
+                
+                  <li><a href="/posts/2026-02-03-first-post/">My First Blog Post</a></li>
+                
+              </ul>
+            </details>
+          
+        </div>
+      </details>
+    
+  </div>
+</aside>
+
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+
+<script>
+const searchInput = document.getElementById('search-input');
+  const resultsList = document.getElementById('search-results');
+  let fuse;
+
+  // 1. Fetch the index and initialize Fuse
+  fetch('/search.json')
+    .then(response => response.json())
+    .then(data => {
+      fuse = new Fuse(data, {
+        keys: ['title', 'tags', 'date'], // The fields to search in
+        threshold: 0.3, // 0.0 = perfect match, 1.0 = match anything. 0.3 is the "sweet spot"
+        distance: 100   // How far the typo can be from the original word
+      });
+    });
+
+  // 2. Perform Fuzzy Search
+  searchInput.addEventListener('input', (e) => {
+    const term = e.target.value;
+    resultsList.innerHTML = '';
+    
+    if (term.length < 2) {
+      resultsList.style.display = 'none';
+      return;
+    }
+
+    // Use Fuse to search
+    const results = fuse.search(term);
+
+    if (results.length > 0) {
+      resultsList.style.display = 'block';
+      results.forEach(result => {
+        const post = result.item; // Fuse wraps results in an 'item' object
+        const li = document.createElement('li');
+        const tagList = Array.isArray(post.tags) 
+                        ? post.tags.filter(t => t !== 'post').join(', ') 
+                        : '';
+                        
+        li.innerHTML = `
+          <a href="${post.url}">${post.title}</a><br>
+          <small>${post.date} ${tagList ? 'in ' + tagList : ''}</small>
+        `;
+        resultsList.appendChild(li);
+      });
+    } else {
+      resultsList.style.display = 'block';
+      resultsList.innerHTML = '<li>No matches found</li>';
+    }
+  });
+</script>
+
+</body>
+</html>
